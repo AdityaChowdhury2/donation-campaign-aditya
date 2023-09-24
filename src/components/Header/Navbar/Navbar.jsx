@@ -1,6 +1,42 @@
 import { Link, NavLink } from 'react-router-dom';
 import Logo from './Logo/Logo';
 import { Icon } from '@iconify/react';
+const links = (
+	<>
+		<li>
+			<NavLink
+				to={'/'}
+				className={({ isActive }) =>
+					isActive
+						? 'text-red-500 underline underline-offset-4 font-bold active:bg-white active:text-base'
+						: ''
+				}
+			>
+				Home
+			</NavLink>
+		</li>
+		<li>
+			<NavLink
+				to={'/donation'}
+				className={({ isActive }) =>
+					isActive ? 'text-red-500 underline underline-offset-4 font-bold' : ''
+				}
+			>
+				Donation
+			</NavLink>
+		</li>
+		<li>
+			<NavLink
+				to={'/statistics'}
+				className={({ isActive }) =>
+					isActive ? 'text-red-500 underline underline-offset-4 font-bold' : ''
+				}
+			>
+				Statistics
+			</NavLink>
+		</li>
+	</>
+);
 
 const Navbar = () => {
 	return (
@@ -19,85 +55,13 @@ const Navbar = () => {
 						</label>
 						<ul
 							tabIndex={0}
-							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52"
 						>
-							<li>
-								<NavLink
-									to={'/'}
-									className={({ isActive }) =>
-										isActive
-											? 'text-red-500 underline underline-offset-4 font-bold'
-											: ''
-									}
-								>
-									Home
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={'/donation'}
-									className={({ isActive }) =>
-										isActive
-											? 'text-red-500 underline underline-offset-4 font-bold'
-											: ''
-									}
-								>
-									Donation
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={'/statistics'}
-									className={({ isActive }) =>
-										isActive
-											? 'text-red-500 underline underline-offset-4 font-bold'
-											: ''
-									}
-								>
-									Statistics
-								</NavLink>
-							</li>
+							{links}
 						</ul>
 					</div>
 					<div className="hidden lg:flex">
-						<ul className="flex gap-12 px-1">
-							<li>
-								<NavLink
-									to={'/'}
-									className={({ isActive }) =>
-										isActive
-											? 'text-red-500 underline underline-offset-4 font-bold'
-											: ''
-									}
-								>
-									Home
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={'/donation'}
-									className={({ isActive }) =>
-										isActive
-											? 'text-red-500 underline underline-offset-4 font-bold'
-											: ''
-									}
-								>
-									Donation
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to={'/statistics'}
-									className={({ isActive }) =>
-										isActive
-											? 'text-red-500 underline underline-offset-4 font-bold'
-											: ''
-									}
-								>
-									Statistics
-								</NavLink>
-							</li>
-						</ul>
+						<ul className="flex gap-12 px-1">{links}</ul>
 					</div>
 				</div>
 			</nav>

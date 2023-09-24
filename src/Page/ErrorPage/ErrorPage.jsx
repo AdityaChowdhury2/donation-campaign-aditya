@@ -16,7 +16,7 @@ const ErrorPage = () => {
 					</p>
 					<Link
 						to="/"
-						className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded transition duration-150"
+						className="flex items-center space-x-2 bg-red-500 hover:bg-red-600 text-gray-100 px-4 py-2 rounded transition duration-150"
 						title="Return Home"
 					>
 						<Icon icon="mdi:arrow-left" />
@@ -25,7 +25,7 @@ const ErrorPage = () => {
 				</div>
 				<div className="md:w-1/2 lg:h-full flex items-center justify-center p-4">
 					<svg
-						className="w-full text-blue-600"
+						className="w-full text-red-500"
 						xmlns="http://www.w3.org/2000/svg"
 						data-name="Layer 1"
 						viewBox="0 0 1120.59226 777.91584"

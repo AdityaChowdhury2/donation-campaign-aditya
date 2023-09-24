@@ -9,7 +9,7 @@ const myCustomRouter = createBrowserRouter([
 	{
 		path: '/',
 		element: <MainLayout />,
-		errorElement: <ErrorPage />,
+
 		children: [
 			{
 				path: '/',
@@ -25,10 +25,12 @@ const myCustomRouter = createBrowserRouter([
 				element: <DonationPage />,
 			},
 			{
-				path: '/campaignDetails',
+				path: '/campaignDetails/:campaignId',
 				element: <CampaignDetails />,
+				loader: () => fetch('/data.json'),
 			},
 		],
+		errorElement: <ErrorPage />,
 	},
 ]);
 
