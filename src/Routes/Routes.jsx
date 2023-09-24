@@ -3,11 +3,13 @@ import MainLayout from '../layout/MainLayout';
 import Home from '../Page/Home/Home';
 import DonationPage from '../Page/DonationPage/DonationPage';
 import CampaignDetails from '../Page/CampaignDetails/CampaignDetails';
+import ErrorPage from '../Page/ErrorPage/ErrorPage';
 
 const myCustomRouter = createBrowserRouter([
 	{
 		path: '/',
 		element: <MainLayout />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				path: '/',
