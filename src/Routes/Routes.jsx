@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 import Home from '../Page/Home/Home';
 import DonationPage from '../Page/DonationPage/DonationPage';
+import CampaignDetails from '../Page/CampaignDetails/CampaignDetails';
 
 const myCustomRouter = createBrowserRouter([
 	{
@@ -11,6 +12,7 @@ const myCustomRouter = createBrowserRouter([
 			{
 				path: '/',
 				element: <Home />,
+				loader: () => fetch('/data.json'),
 			},
 			{
 				path: '/donation',
@@ -19,6 +21,10 @@ const myCustomRouter = createBrowserRouter([
 			{
 				path: '/statistics',
 				element: <DonationPage />,
+			},
+			{
+				path: '/campaignDetails',
+				element: <CampaignDetails />,
 			},
 		],
 	},
