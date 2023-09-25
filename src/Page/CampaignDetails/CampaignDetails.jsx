@@ -47,7 +47,7 @@ const CampaignDetails = () => {
 							alt={`${title}'s image`}
 							className="rounded-lg w-full h-[70vh] object-cover"
 						/>
-						<div className="p-4 md:p-6 lg:p-10  absolute bg-[#0b0b0b80] rounded-lg w-full bg-opacity-10 bottom-0">
+						<div className="p-4 md:p-6 lg:p-10  absolute bg-[#0b0b0b80] rounded-b-lg w-full bg-opacity-10 bottom-0">
 							<button
 								style={{
 									backgroundColor: !isHovering ? primary_color : '#DC2626',

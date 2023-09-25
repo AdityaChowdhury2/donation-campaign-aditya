@@ -1,5 +1,12 @@
 import { useContext } from 'react';
-import { Cell, Legend, Pie, PieChart } from 'recharts';
+import {
+	Cell,
+	Legend,
+	Pie,
+	PieChart,
+	ResponsiveContainer,
+	Tooltip,
+} from 'recharts';
 import {
 	CampaignsContext,
 	DonationCampaignContext,
@@ -45,23 +52,29 @@ const StatisticsPage = () => {
 	};
 	return (
 		<div className="flex justify-center">
-			<PieChart width={600} height={600}>
-				<Pie
-					data={data}
-					cx="50%"
-					cy="50%"
-					labelLine={false}
-					label={renderCustomizedLabel}
-					outerRadius={200}
-					fill="#8884d8"
-					dataKey="amount"
-				>
-					{data.map((entry, index) => (
-						<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-					))}
-				</Pie>
-				<Legend />
-			</PieChart>
+			<ResponsiveContainer width="100%" height={500}>
+				<PieChart>
+					<Pie
+						data={data}
+						cx="50%"
+						cy="50%"
+						labelLine={false}
+						label={renderCustomizedLabel}
+						outerRadius={150}
+						fill="#8884d8"
+						dataKey="amount"
+						legendType="line"
+					>
+						{data.map((entry, index) => (
+							<Cell
+								key={`cell-${index}`}
+								fill={COLORS[index % COLORS.length]}
+							/>
+						))}
+					</Pie>
+					<Legend />
+				</PieChart>
+			</ResponsiveContainer>
 		</div>
 	);
 };
