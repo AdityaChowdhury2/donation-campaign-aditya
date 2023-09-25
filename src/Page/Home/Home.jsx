@@ -3,11 +3,11 @@ import { useContext } from 'react';
 import { CampaignsContext } from '../../layout/MainLayout';
 
 const Home = () => {
-	const campaigns = useContext(CampaignsContext);
-
+	const filteredCampaigns = useContext(CampaignsContext);
+	console.log(filteredCampaigns);
 	return (
 		<div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-14 px-3">
-			{campaigns.map(campaign => (
+			{filteredCampaigns.map(campaign => (
 				<CampaignCard campaign={campaign} key={campaign.id} />
 			))}
 		</div>

@@ -1,12 +1,23 @@
 import { Outlet, useLoaderData } from 'react-router-dom';
-import Header from '../components/Header/Header';
+import Banner from '../components/Banner/Banner';
 import { createContext, useEffect, useState } from 'react';
 import { getDonationIdFromLS } from '../utils/LocalStorage';
 
 export const DonationCampaignContext = createContext(0);
 export const CampaignsContext = createContext([]);
+export const FilterTextContext = createContext('');
 const MainLayout = () => {
 	const campaigns = useLoaderData();
+	const [filteredCampaigns, setFilteredCampaigns] = useState(campaigns);
+	const [filterText, setFilterText] = useState('');
+	const handleSearch = () => {
+		console.log('searching..', filterText);
+		setFilteredCampaigns(
+			campaigns.filter(campaign =>
+				campaign.category.toLowerCase().includes(filterText.toLowerCase())
+			)
+		);
+	};
 	const [donatedCampaigns, setDonatedCampaigns] = useState([]);
 	useEffect(() => {
 		const campaignIdsFromLS = getDonationIdFromLS();
@@ -22,8 +33,11 @@ const MainLayout = () => {
 
 	return (
 		<>
-			<Header />
-			<CampaignsContext.Provider value={campaigns}>
+			<FilterTextContext.Provider value={[handleSearch, setFilterText]}>
+				<Banner />
+			</FilterTextContext.Provider>
+
+			<CampaignsContext.Provider value={filteredCampaigns}>
 				{
 					<DonationCampaignContext.Provider
 						value={[donatedCampaigns, setDonatedCampaigns]}

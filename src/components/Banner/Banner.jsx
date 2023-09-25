@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom';
-import Navbar from './Navbar/Navbar';
-import SearchSection from './SerchSection/SearchSection';
+import Navbar from '../Header/Navbar/Navbar';
+import SearchSection from '../Header/SerchSection/SearchSection';
 
-const Header = () => {
+const Banner = () => {
 	const location = useLocation();
 	const isHome = location.pathname === '/';
 	return (
@@ -20,4 +20,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default Banner;
