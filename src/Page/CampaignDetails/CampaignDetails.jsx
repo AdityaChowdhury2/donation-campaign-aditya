@@ -3,11 +3,18 @@ import { useParams } from 'react-router-dom';
 import PulseLoader from 'react-spinners/PulseLoader';
 import { setDonationIdToLS } from '../../utils/LocalStorage';
 import swal from 'sweetalert';
-import { CampaignsContext } from '../../layout/MainLayout';
+import {
+	CampaignsContext,
+	DonationCampaignContext,
+} from '../../layout/MainLayout';
 
 const CampaignDetails = () => {
 	const [campaign, setCampaign] = useState(null);
 	const [isHovering, setIsHovering] = useState(false);
+	const [donatedCampaigns, setDonatedCampaigns] = useContext(
+		DonationCampaignContext
+	);
+
 	const campaigns = useContext(CampaignsContext);
 	const { campaignId } = useParams();
 	const { image, price, primary_color, title, description, id } =
@@ -20,10 +27,12 @@ const CampaignDetails = () => {
 	};
 	const handleDonateButtonCLick = id => {
 		const response = setDonationIdToLS(id);
+		setDonatedCampaigns([...donatedCampaigns, campaign]);
 		response
 			? swal('Thanks!', 'Your Donation received successfully!', 'success')
 			: swal('Oops', 'You already donate in this campaign', 'error');
 	};
+
 	useEffect(() => {
 		setCampaign(campaigns.find(campaign => campaign.id === Number(campaignId)));
 	}, [campaignId, campaigns]);

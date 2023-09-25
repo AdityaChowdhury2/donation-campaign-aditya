@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import Logo from './Logo/Logo';
 import { Icon } from '@iconify/react';
+import './Navbar.css';
 const links = (
 	<>
 		<li>
@@ -8,7 +9,7 @@ const links = (
 				to={'/'}
 				className={({ isActive }) =>
 					isActive
-						? 'text-red-500 underline underline-offset-4 font-bold active:bg-white active:text-base'
+						? 'text-red-500 underline underline-offset-4 font-bold active:bg-red-300'
 						: ''
 				}
 			>
@@ -55,7 +56,7 @@ const Navbar = () => {
 						</label>
 						<ul
 							tabIndex={0}
-							className="menu menu-sm bg-base-100 dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52"
+							className="menu menu-sm bg-base-100 dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 "
 						>
 							{links}
 						</ul>

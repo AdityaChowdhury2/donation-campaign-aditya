@@ -3,28 +3,34 @@ import Header from '../components/Header/Header';
 import { createContext, useEffect, useState } from 'react';
 import { getDonationIdFromLS } from '../utils/LocalStorage';
 
-export const DonationAmountContext = createContext(0);
+export const DonationCampaignContext = createContext(0);
 export const CampaignsContext = createContext([]);
 const MainLayout = () => {
 	const campaigns = useLoaderData();
-	const [donatedAmounts, setDonatedAmounts] = useState(0);
-
+	const [donatedCampaigns, setDonatedCampaigns] = useState([]);
 	useEffect(() => {
 		const campaignIdsFromLS = getDonationIdFromLS();
-		const donatedCampaigns = campaigns.filter(campaign =>
-			campaignIdsFromLS.find(id => campaign.id === id)
-		);
-		setDonatedAmounts(
-			donatedCampaigns.reduce((acc, prev) => acc + prev.price, 0)
-		);
+		if (campaignIdsFromLS.length && campaigns) {
+			const donatedCampaignsFromLS = campaigns?.filter(campaign =>
+				campaignIdsFromLS?.find(id => campaign.id === id)
+			);
+			setDonatedCampaigns(donatedCampaignsFromLS);
+		} else {
+			console.log('no data found in local storage');
+		}
 	}, [campaigns]);
+
 	return (
 		<>
 			<Header />
 			<CampaignsContext.Provider value={campaigns}>
-				<DonationAmountContext.Provider value={donatedAmounts}>
-					<Outlet />
-				</DonationAmountContext.Provider>
+				{
+					<DonationCampaignContext.Provider
+						value={[donatedCampaigns, setDonatedCampaigns]}
+					>
+						<Outlet />
+					</DonationCampaignContext.Provider>
+				}
 			</CampaignsContext.Provider>
 		</>
 	);
