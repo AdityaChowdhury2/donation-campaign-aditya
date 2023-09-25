@@ -1,8 +1,10 @@
-# React + Vite
+# Donation Campaign
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Donation Campaign is a react based client side website where I implemented react router to navigate three different pages.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Navigate pages with react router dom
+- One can select a campaign to see details and using dynamic route he can donate in this specific campaign
+- After refreshing the browser will not delete the donated campaigns.
+- In statistics page he can see how much he donated as compare to total donation.
