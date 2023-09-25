@@ -4,17 +4,17 @@ import Home from '../Page/Home/Home';
 import DonationPage from '../Page/DonationPage/DonationPage';
 import CampaignDetails from '../Page/CampaignDetails/CampaignDetails';
 import ErrorPage from '../Page/ErrorPage/ErrorPage';
+import StatisticsPage from '../Page/StatisticsPage/StatisticsPage';
 
 const myCustomRouter = createBrowserRouter([
 	{
 		path: '/',
 		element: <MainLayout />,
-
+		loader: () => fetch('/data.json'),
 		children: [
 			{
 				path: '/',
 				element: <Home />,
-				loader: () => fetch('/data.json'),
 			},
 			{
 				path: '/donation',
@@ -22,12 +22,11 @@ const myCustomRouter = createBrowserRouter([
 			},
 			{
 				path: '/statistics',
-				element: <DonationPage />,
+				element: <StatisticsPage />,
 			},
 			{
 				path: '/campaignDetails/:campaignId',
 				element: <CampaignDetails />,
-				loader: () => fetch('/data.json'),
 			},
 		],
 		errorElement: <ErrorPage />,
