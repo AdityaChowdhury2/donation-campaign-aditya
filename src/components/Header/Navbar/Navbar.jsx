@@ -8,9 +8,7 @@ const links = (
 			<NavLink
 				to={'/'}
 				className={({ isActive }) =>
-					isActive
-						? 'text-red-500 underline underline-offset-4 font-bold active:bg-red-300'
-						: ''
+					isActive ? 'text-red-500 underline underline-offset-4 font-bold' : ''
 				}
 			>
 				Home

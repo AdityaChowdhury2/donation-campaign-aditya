@@ -2,6 +2,7 @@ import { Outlet, useLoaderData } from 'react-router-dom';
 import Banner from '../components/Banner/Banner';
 import { createContext, useEffect, useState } from 'react';
 import { getDonationIdFromLS } from '../utils/LocalStorage';
+import Footer from '../components/Footer/Footer';
 
 export const DonationCampaignContext = createContext(0);
 export const CampaignsContext = createContext([]);
@@ -10,6 +11,7 @@ const MainLayout = () => {
 	const campaigns = useLoaderData();
 	const [filteredCampaigns, setFilteredCampaigns] = useState(campaigns);
 	const [filterText, setFilterText] = useState('');
+	const [donatedCampaigns, setDonatedCampaigns] = useState([]);
 	const handleSearch = () => {
 		console.log('searching..', filterText);
 		setFilteredCampaigns(
@@ -18,7 +20,6 @@ const MainLayout = () => {
 			)
 		);
 	};
-	const [donatedCampaigns, setDonatedCampaigns] = useState([]);
 	useEffect(() => {
 		const campaignIdsFromLS = getDonationIdFromLS();
 		if (campaignIdsFromLS.length && campaigns) {
@@ -30,6 +31,7 @@ const MainLayout = () => {
 			console.log('no data found in local storage');
 		}
 	}, [campaigns]);
+	console.log(donatedCampaigns);
 
 	return (
 		<>
@@ -40,12 +42,13 @@ const MainLayout = () => {
 			<CampaignsContext.Provider value={filteredCampaigns}>
 				{
 					<DonationCampaignContext.Provider
-						value={[donatedCampaigns, setDonatedCampaigns]}
+						value={{ donatedCampaigns, setDonatedCampaigns }}
 					>
 						<Outlet />
 					</DonationCampaignContext.Provider>
 				}
 			</CampaignsContext.Provider>
+			<Footer />
 		</>
 	);
 };

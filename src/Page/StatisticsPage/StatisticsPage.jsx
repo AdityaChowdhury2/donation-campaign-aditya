@@ -13,7 +13,7 @@ import {
 } from '../../layout/MainLayout';
 
 const StatisticsPage = () => {
-	const [donatedCampaigns] = useContext(DonationCampaignContext);
+	const { donatedCampaigns } = useContext(DonationCampaignContext);
 	const campaigns = useContext(CampaignsContext);
 	const donatedAmounts = donatedCampaigns.reduce(
 		(acc, prev) => acc + prev.price,
@@ -73,6 +73,7 @@ const StatisticsPage = () => {
 						))}
 					</Pie>
 					<Legend />
+					<Tooltip />
 				</PieChart>
 			</ResponsiveContainer>
 		</div>

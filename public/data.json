@@ -7,6 +7,7 @@
       "category_bg": "#fecaca",
       "card_bg": "#fee2e2",
       "primary_color": "#ef4444",
+      "secondary_color": "#dc2626",
       "description": "Help provide quality education to underprivileged children. Your contribution goes toward building brighter futures, ensuring that every child has access to knowledge and opportunities.",
       "price": 199
     },
@@ -18,6 +19,7 @@
       "category_bg": "#fed7aa",
       "card_bg": "#ffedd5",
       "primary_color": "#f97316",
+      "secondary_color": "#ea580c",
       "description": "Help feed those facing hunger and malnutrition.",
       "price": 199
     },
@@ -29,6 +31,7 @@
       "category_bg": "#bae6fd",
       "card_bg": "#dbeafe",
       "primary_color": "#0ea5e9",
+      "secondary_color": "#0284c7",
       "description": "Contribute to healthcare programs for those in need. Your support makes a difference in ensuring access to medical care and improving the well-being of individuals and families.",
       "price": 299
     },
@@ -40,6 +43,7 @@
       "category_bg": "#fed7aa",
       "card_bg": "#ffedd5",
       "primary_color": "#f97316",
+      "secondary_color": "#ea580c",
       "description": "Join us in the battle against hunger and food insecurity. Your donation helps provide meals to those facing hunger, making a significant impact on their lives.",
       "price": 249
     },
@@ -50,7 +54,8 @@
       "category": "Clothing",
       "category_bg": "#a7f3d0",
       "card_bg": "#d1fae5",
-      "primary_color": "#059669",
+      "primary_color": "#10b981",
+      "secondary_color": "#059669",
       "description": "Support our clothing drive to help those in need of clothing. Your contribution ensures that individuals have warm clothing during harsh weather conditions.",
       "price": 149
     },
@@ -62,6 +67,7 @@
       "category_bg": "#fed7aa",
       "card_bg": "#ffedd5",
       "primary_color": "#f97316",
+      "secondary_color": "#ea580c",
       "description": "Work towards a world without hunger. Your donation helps create sustainable solutions to combat hunger and malnutrition.",
       "price": 349
     },
@@ -73,6 +79,7 @@
       "category_bg": "#fecaca",
       "card_bg": "#fee2e2",
       "primary_color": "#ef4444",
+      "secondary_color": "#dc2626",
       "description": "Empower the next generation through education. Your support helps bridge educational gaps, giving children the tools they need to succeed.",
       "price": 299
     },
@@ -84,6 +91,7 @@
       "category_bg": "#bae6fd",
       "card_bg": "#dbeafe",
       "primary_color": "#0ea5e9",
+      "secondary_color": "#0284c7",
       "description": "Ensure access to healthcare for everyone. Your contribution makes healthcare services accessible to those who may not have had the opportunity otherwise.",
       "price": 399
     },
@@ -95,6 +103,7 @@
       "category_bg": "#fecaca",
       "card_bg": "#fee2e2",
       "primary_color": "#ef4444",
+      "secondary_color": "#dc2626",
       "description": "Ensure equal access to education for all. Your support promotes inclusivity, giving every child the chance to learn and thrive.",
       "price": 299
     },
@@ -106,7 +115,8 @@
       "category": "Clothing",
       "category_bg": "#a7f3d0",
       "card_bg": "#d1fae5",
-      "primary_color": "#059669",
+      "primary_color": "#10b981",
+      "secondary_color": "#059669",
       "description": "Provide clothing to those in need. Your contribution ensures that individuals have clean and comfortable clothing for their daily lives.",
       "price": 249
     },
@@ -119,6 +129,7 @@
       "category_bg": "#bae6fd",
       "card_bg": "#dbeafe",
       "primary_color": "#0ea5e9",
+      "secondary_color": "#0284c7",
       "description": "Promote wellness and healthy living. Your contribution supports programs that encourage physical and mental well-being.",
       "price": 349
     },
@@ -130,7 +141,8 @@
       "category": "Clothing",
       "category_bg": "#a7f3d0",
       "card_bg": "#d1fae5",
-      "primary_color": "#059669",
+      "primary_color": "#10b981",
+      "secondary_color": "#059669",
       "description": "Support clothing distribution for disadvantaged communities.",
       "price": 149
     }

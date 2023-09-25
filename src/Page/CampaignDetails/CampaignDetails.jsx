@@ -10,27 +10,28 @@ import {
 
 const CampaignDetails = () => {
 	const [campaign, setCampaign] = useState(null);
-	const [isHovering, setIsHovering] = useState(false);
-	const [donatedCampaigns, setDonatedCampaigns] = useContext(
+	const { donatedCampaigns, setDonatedCampaigns } = useContext(
 		DonationCampaignContext
 	);
 
 	const campaigns = useContext(CampaignsContext);
 	const { campaignId } = useParams();
-	const { image, price, primary_color, title, description, id } =
-		campaign || {};
-	const handleMouseEnter = () => {
-		setIsHovering(true);
-	};
-	const handleMouseLeave = () => {
-		setIsHovering(false);
-	};
+	const {
+		image,
+		price,
+		primary_color,
+		title,
+		description,
+		id,
+		secondary_color,
+	} = campaign || {};
 	const handleDonateButtonCLick = id => {
 		const response = setDonationIdToLS(id);
-		setDonatedCampaigns([...donatedCampaigns, campaign]);
-		response
-			? swal('Thanks!', 'Your Donation received successfully!', 'success')
-			: swal('Oops', 'You already donate in this campaign', 'error');
+
+		if (response) {
+			swal('Thanks!', 'Your Donation received successfully!', 'success');
+			setDonatedCampaigns([...donatedCampaigns, campaign]);
+		} else swal('Oops', 'You already donate in this campaign', 'error');
 	};
 
 	useEffect(() => {
@@ -45,16 +46,20 @@ const CampaignDetails = () => {
 						<img
 							src={image}
 							alt={`${title}'s image`}
-							className="rounded-lg w-full h-[70vh] object-cover"
+							className="rounded-lg max-w-full h-auto"
 						/>
-						<div className="p-4 md:p-6 lg:p-10  absolute bg-[#0b0b0b80] rounded-b-lg w-full bg-opacity-10 bottom-0">
+						<div className="p-4 md:p-6 lg:p-10 absolute bg-[#0b0b0b80] rounded-b-lg w-full bg-opacity-10 bottom-0">
 							<button
 								style={{
-									backgroundColor: !isHovering ? primary_color : '#DC2626',
+									backgroundColor: primary_color,
 								}}
 								className={`rounded px-3 py-1  text-white text-xs md:text-base duration-300`}
-								onMouseEnter={handleMouseEnter}
-								onMouseLeave={handleMouseLeave}
+								onMouseEnter={e =>
+									(e.target.style.backgroundColor = secondary_color)
+								}
+								onMouseLeave={e =>
+									(e.target.style.backgroundColor = primary_color)
+								}
 								onClick={() => handleDonateButtonCLick(id)}
 							>
 								Donate ${price}
