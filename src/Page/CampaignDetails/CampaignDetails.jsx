@@ -42,11 +42,11 @@ const CampaignDetails = () => {
 		<div className="container px-3">
 			{campaign ? (
 				<div>
-					<div className="relative my-14">
+					<div className="relative my-14 h-[60vh]">
 						<img
 							src={image}
 							alt={`${title}'s image`}
-							className="rounded-lg h-auto w-full"
+							className="rounded-lg h-full w-full"
 						/>
 						<div className="p-4 md:p-6 lg:p-10 absolute bg-[#0b0b0b80] rounded-b-lg w-full bg-opacity-10 bottom-0">
 							<button

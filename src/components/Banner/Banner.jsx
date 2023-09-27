@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import Navbar from '../Header/Navbar/Navbar';
-import SearchSection from '../Header/SerchSection/SearchSection';
+import SearchSection from '../Header/SearchSection/SearchSection';
 
 const Banner = () => {
 	const location = useLocation();
